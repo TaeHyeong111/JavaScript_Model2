@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Carrier {
     public static void forward(HttpServletRequest request, HttpServletResponse response) {
-        System.out.println("ºä:" + Sentry.cmd.getView());
+        System.out.println("ï¿½ï¿½:" + Sentry.cmd.getView());
 			try {
 				request
-				.getRequestDispatcher(Sentry.cmd.getView()) //»÷Æ®¸®°¡ ÁÖ´ÂÀå¼Ò·Î º¸³»±â¸¸ÇÔ
+				.getRequestDispatcher(Sentry.cmd.getView()) //ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½Ò·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½â¸¸ï¿½ï¿½
 				.forward(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -23,7 +23,7 @@ public class Carrier {
     		HttpServletResponse response, 
     		String url) {
     	try {
-    		System.out.println("http¸®Äù½ºÆ®"+request);
+    		System.out.println("ë¦¬í€˜ìŠ¤íŠ¸"+request);
 			response.sendRedirect(request.getContextPath()+url);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

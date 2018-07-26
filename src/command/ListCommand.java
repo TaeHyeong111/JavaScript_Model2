@@ -15,7 +15,9 @@ public class ListCommand extends Command {
 	}
 	@Override
 	public void execute() {
-		request.setAttribute("list", MemberServiceImpl.getInstance().listMember());
+		request.setAttribute("list", MemberServiceImpl.getInstance().listMember()); //변수명, 값
+		//리스트안에 뒷놈이 들어감
 		super.execute();
+		
 	}
 }

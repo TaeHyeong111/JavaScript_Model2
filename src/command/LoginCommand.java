@@ -17,15 +17,15 @@ public class LoginCommand extends Command {
 
 	@Override
 	public void execute() {
-		super.execute();
 		MemberBean bean = new MemberBean();
 		bean.setUserId(request.getParameter("userid"));
-		bean.setPassword(request.getParameter("passwrod"));
+		bean.setPassword(request.getParameter("password"));
 		if (MemberServiceImpl.getInstance().login(bean)) {
 			request.setAttribute("match", "TRUE");
 			request.setAttribute("user", MemberServiceImpl.getInstance().findById(request.getParameter("userid")));
 		}else {
 			request.setAttribute("match", "FALSE");
 		}
+		super.execute();
 	}
 }

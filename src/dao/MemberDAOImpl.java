@@ -185,8 +185,8 @@ public class MemberDAOImpl implements MemberDAO {
 					.executeQuery(
 							String.format(MemberQuery.LOGIN.toString(),
 						              member.getUserId(),member.getPassword()));
-			
-			/*while(rs.next()) {
+			System.out.println("겟 아이디 패스워드"+member.getUserId()+ member.getPassword());
+			while(rs.next()) {
 				m = new MemberBean();
                 m.setUserId(rs.getString("MEM_ID"));
                 m.setName(rs.getString("NAME"));
@@ -194,8 +194,8 @@ public class MemberDAOImpl implements MemberDAO {
                 m.setSsn(rs.getString("SSN"));                
                 m.setRoll(rs.getString("ROLL"));
                 m.setPassword(rs.getString("PASSWORD"));
-                }*/
-			
+                }
+			System.out.println("엠"+m);
 		} catch (Exception e) {   // �닔�젙�빐以��떎. 
 			e.printStackTrace();
 		}

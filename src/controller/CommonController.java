@@ -20,7 +20,7 @@ public class CommonController extends HttpServlet {
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int i = 0;
-		for(Resources r : Resources.values()) {
+		for(Resources r : Resources.values()) { //클래스타입, 변수명, 클래스길이
 			if(i==0) {
 				request.getSession()
 				.setAttribute(r.toString().toLowerCase(),
@@ -36,5 +36,5 @@ public class CommonController extends HttpServlet {
 			i++;
 		}
 		request.getRequestDispatcher(Term.WEBPATH.toString()+Term.MAIN.toString()).forward(request, response);
-	}
+	} //페이지 이동기능
 }

@@ -17,7 +17,7 @@ import javafx.scene.AccessibleAction;
 import service.MemberServiceImpl;
 
 
-@WebServlet({"/member.do","/admin.do"}) //URL mapping ÀÌ¸§ÀÌ ÆÄ¶ó¹ÌÅÍ¾ÈÀÇ °ª
+@WebServlet({"/member.do","/admin.do"}) //URL mapping ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½Í¾ï¿½ï¿½ï¿½ ï¿½ï¿½
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -28,11 +28,11 @@ public class MemberController extends HttpServlet {
 		System.out.println(request);
 		switch(Action.valueOf(Sentry.cmd.getAction().toUpperCase())) {
 		case MOVE : 
-			System.out.println("¹«ºê"+Action.valueOf(Sentry.cmd.getAction().toUpperCase()));
+			System.out.println("ì•¡ì…˜"+Action.valueOf(Sentry.cmd.getAction().toUpperCase()));
 				Carrier.forward(request, response);
 			break;
 		case JOIN :
-			System.out.println("Á¶ÀÎ"+Action.valueOf(Sentry.cmd.getAction().toUpperCase()));
+			System.out.println("ì•¡ì…˜"+Action.valueOf(Sentry.cmd.getAction().toUpperCase()));
 			Carrier.redirect(request, response,
 					"/member.do?action=move&page=userLoginForm");
 			break;
@@ -41,7 +41,7 @@ public class MemberController extends HttpServlet {
 			if(request.getAttribute("match").equals("TRUE")) {
 				Carrier.forward(request, response);
 			}else {
-				Carrier.redirect(request, response, "/member.do?action=move&page=userLoginForm");
+				Carrier.redirect(request, response,"/member.do?action=move&page=userLoginForm");
 			}
 			break;
 			

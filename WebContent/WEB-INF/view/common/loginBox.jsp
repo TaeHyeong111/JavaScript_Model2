@@ -2,12 +2,17 @@
 
 <div id="login-Box">
 <a id="moveLoginForm" >LOGIN </a> &nbsp;&nbsp;&nbsp;
-<a onclick="common.move('member','move','joinForm')">JOIN </a> 
+<a id="moveJoinForm"> JOIN </a>
 </div>
 <script>
 	document.getElementById('moveLoginForm')
 	.addEventListener('click',function() {
 	alert('클릭 이벤트 체크!!');
-	common.move('member','move','userLoginForm');
+	new Common().move('${ctx}','member','move','userLoginForm');
+});
+	document.getElementById('moveJoinForm')
+	.addEventListener('click',function() {
+	alert('클릭 이벤트 체크!!');
+	new Common().move('member','move','userLoginForm');
 });
 </script>
