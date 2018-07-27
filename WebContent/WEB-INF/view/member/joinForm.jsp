@@ -1,42 +1,75 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<% String ctx = application.getContextPath(); %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<title>Member Join </title>
-	
-</head>
+<jsp:include page="../common/head.jsp" />
 <body>
-<form action="<%= ctx%>/member.do">
-	<h1> 회원 가입 </h1>
+	<h1>Login</h1>
+	<form id="joinForm" name="joinForm">
+		Name : <input type="text" name="name"/><br>
+		User ID : <input type="text" name="userid" /> <br>
+		 Password : <input	type="text" name="password" /><br>
+		 SSN : <input type="text" name="ssn"/>
+		 <input type="hidden" name="age"/>
+		 <input type="hidden" name="gender"/> 
+		 <input id="joinFormBtn" type="button" value="제출" />  
+		 <input type="hidden" name="action"	value="login" />
+		  <input type="hidden" name="page" value="mypage" />
+		  
+		  <script>
+		  document.getElementById("joinFormBtn").addEventListener('click', function(){
+			  var x = service.nullChecker
+			  		  ([document.joinForm.name.value, 
+						document.joinForm.userid.value, 
+						document.joinForm.password.value,
+						document.joinForm.ssn.value]);
+				if(x.checker){
+					var form = document.getElementById('joinForm');
+					form.action = "${ctx}/member.do";
+					form.method = "post";
+					member.join(form.ssn.value);
+					form.gender.value = member.getGender();
+					form.age.value = member.getAge();
+					alert(member.getGender());
+					form.submit();
+				}else{
+					alert(x.text);
+				}	
+			});
+    </script>
+		  
+		  소속팀
+		  <input type="radio" name="teamid"
+		  value="none" checked="checked"/> 없음
+		  <input type="radio" name="teamid"
+		  value="nolja"/>놀자
+		  <input type="radio" name="teamid"
+		  value="jieunHouse"/>지은하우스
+		  <input type="radio" name="teamid"
+		  value="turtleking"/>거북왕
+		  <input type="radio" name="teamid"
+		  value="coddingZzang"/>코딩짱
+		  
+		  프로젝트역할
+		  <select name="roll" id="roll">
+		  <option value="leader">팀장</option>
+		  <option value="front">프론트개발</option>
+		  <option value="back">백단개발</option>
+		  <option value="android">안드로이드개발</option>
+		  <option value="minfe">민폐</option>
+		  </select>
+		  
+		  수강과목
+		  <input type="checkbox" name="subject"
+		  value="java" checked="checked"/> Java
+		  <input type="checkbox" name="subject" value="clang"/> C언어
+		  <input type="checkbox" name="subject" value="jsp"/> JSP
+		  <input type="checkbox" name="subject" value="php"/> PHP
+		  <input type="checkbox" name="subject" value="nodejs"/> NodsJS
+		  <input type="checkbox" name="subject" value="linux"/> Linux
+		  <input type="checkbox" name="subject" value="html"/> HTML
+		  <input type="checkbox" name="subject" value="spring"/> Spring
+	</form>
 
-	<table>
-		<tr>
-			<td>NAME</td>
-			<td> <input type="text" name="name" placeholder="이름을  입력해주세요." /></td>
-		</tr>
-		
-		<tr>
-			<td>ID</td>
-			<td><input type="text" name="userid" placeholder="ID를 입력해주세요." /> 
-				<input type="button" value="중복확인" ></td>
-		</tr>
-		
-		<tr>
-			<td>Password</td>
-			<td><input type="password" name="password" placeholder="비밀번호를  입력(8~20자)" /></td>	
-		</tr>
-		
-		<tr>
-			<td>SSN</td>
-			<td><input type="text" name="ssn" placeholder="생년월일 입력(ex900115-1)" /></td>
-		</tr>
-	
-	</table>
-	<input type="submit" value="join">
-		<input type="hidden" name="action" value="join" />
-		<input type="hidden" name="page" value="joinResult" />
-</form>
 </body>
 </html>
+

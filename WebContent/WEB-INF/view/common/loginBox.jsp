@@ -8,11 +8,11 @@
 	document.getElementById('moveLoginForm')
 	.addEventListener('click',function() {
 	alert('클릭 이벤트 체크!!');
-	new Common().move('${ctx}','member','move','userLoginForm');
+	router.move(['${ctx}','member','move','userLoginForm']);
 });
 	document.getElementById('moveJoinForm')
 	.addEventListener('click',function() {
 	alert('클릭 이벤트 체크!!');
-	new Common().move('member','move','userLoginForm');
+	router.move(['${ctx}','member','move','joinForm']);
 });
 </script>

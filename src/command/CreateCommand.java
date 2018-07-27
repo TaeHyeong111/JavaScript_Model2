@@ -19,11 +19,16 @@ public class CreateCommand extends Command {
 		switch(Domain.valueOf(domain.toUpperCase())) {
 		case MEMBER : 
 			MemberBean mem = new MemberBean();
-			mem.setName(request.getParameter("name"));
-			mem.setPassword(request.getParameter("password"));
-			mem.setSsn(request.getParameter("ssn"));
 			mem.setUserId(request.getParameter("userid"));
-			//MemberServiceImpl.getInstance().createMember(mem);
+			mem.setPassword(request.getParameter("password"));
+			mem.setName(request.getParameter("name"));
+			mem.setSsn(request.getParameter("ssn"));
+			mem.setGender(request.getParameter("gender"));
+			mem.setAge(request.getParameter("age"));
+			mem.setRoll(request.getParameter("roll"));
+			mem.setTeamId(request.getParameter("teamid"));
+			mem.setSubject(ParamMap.getValues(request, "subject"));
+			MemberServiceImpl.getInstance().createMember(mem);
 			break;
 			default:
 			 

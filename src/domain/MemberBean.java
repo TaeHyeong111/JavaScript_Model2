@@ -3,5 +3,5 @@ package domain;
 import lombok.Data;
 @Data
 public class MemberBean {
-	private String userId, ssn, name, roll, teamId, password, age, sex;
+	private String userId, ssn, name, roll, teamId, password, age, sex, subject, gender;
 }
